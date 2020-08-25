@@ -31,8 +31,8 @@
 *.out
 *.app
 
-# out
-[Oo]ut
+# Build results
+[Oo]ut/
 
 # Readme file
 *.readme
