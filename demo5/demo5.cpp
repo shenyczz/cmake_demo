@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    cout << "demo3:" << endl
+    cout << "demo5:" << endl
          << "call methord foo() return a int value is "
          << foo() << endl;
     return 0;

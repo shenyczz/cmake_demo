@@ -1,0 +1,7 @@
+git config --list
+git config --global --list
+
+git config --global user.name "shenyczz"
+git config --global user.email shenyczz@163.com
+
+

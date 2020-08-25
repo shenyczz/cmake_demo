@@ -1,0 +1,123 @@
+区分 开发版 与 发布版
+上述的代码编译后都是不可调试的，并且没有做编译优化，我们希望能够编译成一个调试版本与一个发布版本。做法如下:
+
+我们将build目录作为开发版本编译目录，与之相对的新建一个release目录作为发布版本
+在build目录下我们执行cmake -DMAKE_BUILD_TYPE=Debug ..,编译命令会使用-g
+在release目录下我们执行cmake -DMAKE_BUILD_TYPE=Release ..,编译命令会使用-O3 -DNDEBUG
+所以，在源代码中，我们可以使用NDEBUG宏来控制，在开发版输出调试信息，而在发布版本去掉调试信息。
+
+【指令参考】：
+1、PROJECT(projectname)
+项目名
+
+2、SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])
+SET定义变量。使用变量则是${VAR_NAME}。
+注意：如果是在IF控制语句中，不能使用${}，而是直接使用VAR_NAME。
+
+3、MESSAGE([SEND_ERROR | STATUS | FATAL_ERROR] "message to display"...)
+MESSAGE向终端输出用户定义的信息，FATAL_ERROR会立即终止cmake编译过程。
+
+4、ADD_SUBDIRECTORY(source_dir [binary_dir] [EXCLUDE_FROM_ALL])
+ADD_SUBDIRECTORY指定cmake子目录源代码所在路径，以及编译后二进制文件存放目录。
+
+5、$ENV{HOME}
+使用环境变量 HOME
+
+6、INCLUDE_DIRECTORIES(header_file_dir)
+添加头文件搜索目录
+
+7、LINK_DIRECTORIES(lib_file_dir)
+添加库文件搜索目录
+
+08、TARGET_LINK_LIBRARIES(exe mod1)             # 将 libmod1.so 链接到 exe 中
+09、ADD_DEFINITIONS(-DENABLE_DEBUG)             # 向C/C++编译器中添加宏定义 ENABLE_DEBUG
+10、ADD_DEPENDENCIES(target-name depend-target1 ) # 定义依赖
+11、AUX_SOURCE_DIRECTORY(. SRC_LIST)
+AUX_SOURCE_DIRECTORY发现一个目录下所有的源代码文件并将列表存储在一个变量中。
+
+12、EXEC_PROGRAM
+IF(not LS_RVALUE)
+    MESSAGE(STATUS "ls result: " ${LS_OUTPUT})
+ENDIF(not LS_RVALUE)
+
+EXEC_PROGRAM用于在构建时，运行shell命令，ARGS指明参数，OUTPUT_VARIABLE LS_OUTPUT RETURN_VALUE LS_RVALUE 存储了命令运行的结果。
+
+13、INCLUDE
+INCLUDE(file1 [OPTIONAL])       # 载入 CMakeLists.txt　文件
+INCLUDE(module [OPTIONAL])　　　 # 载入 cmake 模块
+OPTIONAL参数的作用是文件不存在也不会产生错误。
+
+【变量参考】
+项目目录相关:
+# 构建发生的目录
+CMAKE_BINARY_DIR
+PROJECT_BINARY_DIR
+<projectname>_BINARY_DIR
+ 
+# 不论采用何种编译方式，都是工程顶层目录
+CMAKE_SOURCE_DIR
+PROJECT_SOURCE_DIR
+<projectname>_SOURCE_DIR
+CMAKE_CURRENT_SOURCE_DIR  # 当前处理的CMakeLists.txt所在的路径
+CMAKE_CURRRENT_BINARY_DIR # 内部编译: 跟CMAKE_CURRENT_SOURCE_DIR一致
+                          # 外部编译: 指的是构建目录
+                          # add_subdirectory(src bin) 会更改它的值为 bin
+CMAKE_CURRENT_LIST_FILE   # 当前输出所在的CMakeLists.txt的完整路径
+CMAKE_CURRENT_LIST_LINE   # 当前输出所在的行
+CMAKE_MODULE_PATH         # 模块所在路径
+EXECUTABLE_OUTPUT_PATH    # 可执行文件存放目录
+LIBRARY_OUTPUT_PATH       # 库存放目录
+CMAKE_INCLUDE_DIRECTORIES_PROJECT_BEFORE # 将工程提供的头文件目录始终置于系统头文件目录的前面
+CMAKE_INCLUDE_PATH        # 头文件搜索目录
+CMAKE_LIBRARY_PATH        # 库搜索目录
+
+系统信息:
+CMAKE_MAJOR_VERSION       # CMAKE主版本号，比如2.4.6中的2
+CMAKE_MINOR_VERSION       # CMAKE次版本号，比如2.4.6中的4
+CMAKE_PATCH_VERSION       # CMAKE补丁等级，比如2.4.6中的6
+CMAKE_SYSTEM              # 系统名称，比如Linux-2.6.22
+CMAKE_SYSTEM_NAME         # 不包含版本的系统名，比如Linux
+CMAKE_SYSTEM_VERSION      # 系统版本，比如2.6.22
+CMAKE_SYSTEM_PROCESSOR    # 处理器名称，比如i686
+UNIX                      # 在所有的类Unix平台为TRUE，包括OSX和cygwin
+WIN32                     # 在所有的Win32平台为TRUE，包括cygwin
+
+开关选项:
+CMAKE_ALLOW_LOOSE_LOOP_CONSTRUCTS   # 用来控制IF ELSE语句的书写方式
+BUILD_SHARED_LIBS                   # 这个开关用来控制默认的库编译方式: 动态库 静态库
+CMAKE_C_FLAGS                       # 设置C编译选项
+MAKE_CXX_FLAGS                      # MAKE_CXX_FLAGS
+CMAKE_INCLUDE_CURRENT_DIR           # 自动将每个CMakeLists.txt的所在目录依次加入到 头文件搜索目录
+
+编译参数相关:
+
+message(STATUS "CMAKE_C_FLAGS = " ${CMAKE_C_FLAGS})
+message(STATUS "CMAKE_C_FLAGS_DEBUG = " ${CMAKE_C_FLAGS_DEBUG})
+message(STATUS "CMAKE_C_FLAGS_RELEASE = " ${CMAKE_C_FLAGS_RELEASE})
+ 
+message(STATUS "CMAKE_CXX_FLAGS = " ${CMAKE_CXX_FLAGS})
+message(STATUS "CMAKE_CXX_FLAGS_DEBUG = " ${CMAKE_CXX_FLAGS_DEBUG})
+message(STATUS "CMAKE_CXX_FLAGS_RELEASE = " ${CMAKE_CXX_FLAGS_RELEASE})
+ 
+message(STATUS "CMAKE_EXE_LINKER_FLAGS = " ${CMAKE_EXE_LINKER_FLAGS})
+message(STATUS "CMAKE_EXE_LINKER_FLAGS_DEBUG = " ${CMAKE_EXE_LINKER_FLAGS_DEBUG})
+message(STATUS "CMAKE_EXE_LINKER_FLAGS_RELEASE = " ${CMAKE_EXE_LINKER_FLAGS_RELEASE})
+ 
+message(STATUS "CMAKE_SHARED_LINKER_FLAGS = " ${CMAKE_SHARED_LINKER_FLAGS})
+message(STATUS "CMAKE_SHARED_LINKER_FLAGS_DEBUG = " ${CMAKE_SHARED_LINKER_FLAGS_DEBUG})
+message(STATUS "CMAKE_SHARED_LINKER_FLAGS_RELEASE = " ${CMAKE_SHARED_LINKER_FLAGS_RELEASE})
+ 
+message(STATUS "CMAKE_STATIC_LINKER_FLAGS = " ${CMAKE_STATIC_LINKER_FLAGS})
+message(STATUS "CMAKE_STATIC_LINKER_FLAGS_DEBUG = " ${CMAKE_STATIC_LINKER_FLAGS_DEBUG})
+message(STATUS "CMAKE_STATIC_LINKER_FLAGS_RELEASE = " ${CMAKE_STATIC_LINKER_FLAGS_RELEASE})
+
+
+文章转载自 ： https://www.jianshu.com/p/835f777c9183
+
+
+
+
+
+
+
+

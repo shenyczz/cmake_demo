@@ -1,0 +1,14 @@
+# 最低版本号要求
+cmake_minimum_required(VERSION 2.8)
+
+# 项目名称
+project(demo6)
+
+# 添加子目录
+add_subdirectory(math)
+
+# 指定生成运行文件
+add_executable(${PROJECT_NAME} demo6.cpp)
+
+# 链接库
+target_link_libraries(${PROJECT_NAME} Mathfuns)
