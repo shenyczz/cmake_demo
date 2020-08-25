@@ -31,5 +31,8 @@
 *.out
 *.app
 
+# out
+[Oo]ut
+
 # Readme file
 *.readme
