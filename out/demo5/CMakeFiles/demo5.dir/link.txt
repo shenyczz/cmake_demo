@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/demo5.dir/demo5.cpp.o  -o demo5  math/libMathfuns.a 

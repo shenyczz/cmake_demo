@@ -1,0 +1,6 @@
+/mnt/d/sfxCode/vscode/cmake_demo/out/demo5/CMakeFiles/rebuild_cache.dir
+/mnt/d/sfxCode/vscode/cmake_demo/out/demo5/CMakeFiles/edit_cache.dir
+/mnt/d/sfxCode/vscode/cmake_demo/out/demo5/CMakeFiles/demo5.dir
+/mnt/d/sfxCode/vscode/cmake_demo/out/demo5/math/CMakeFiles/rebuild_cache.dir
+/mnt/d/sfxCode/vscode/cmake_demo/out/demo5/math/CMakeFiles/edit_cache.dir
+/mnt/d/sfxCode/vscode/cmake_demo/out/demo5/math/CMakeFiles/Mathfuns.dir

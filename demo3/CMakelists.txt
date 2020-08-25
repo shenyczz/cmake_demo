@@ -1,0 +1,13 @@
+# 最低版本号要求
+cmake_minimum_required(VERSION 2.8)
+
+# 项目名称
+project(demo3)
+
+# 指定源代码目录
+aux_source_directory(src DIR_SRCS)
+
+# 指定生成目标(这里是可执行文件)
+add_executable(${PROJECT_NAME} demo3.cpp ${DIR_SRCS})
+
+

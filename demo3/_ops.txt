@@ -1,0 +1,8 @@
+#
+# 操作步骤
+#
+cmake demo3 -B out/demo3
+cd out/demo3
+make
+./demo3
+cd ../..

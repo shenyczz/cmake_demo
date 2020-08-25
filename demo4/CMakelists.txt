@@ -1,0 +1,16 @@
+# 最低版本号要求
+cmake_minimum_required(VERSION 2.8)
+
+# 项目名称
+project(demo4)
+
+# 指定库源代码目录
+aux_source_directory(math DIR_LIB_SRCS)
+add_library(Mathfuns SHARED ${DIR_LIB_SRCS})
+
+# 指定生成运行文件
+add_executable(${PROJECT_NAME} demo4.cpp)
+
+# 链接库
+target_link_libraries(${PROJECT_NAME} Mathfuns)
+

@@ -1,0 +1,3 @@
+# 指定库源代码目录
+aux_source_directory(. DIR_LIB_SRCS)
+add_library(Mathfuns STATIC ${DIR_LIB_SRCS})
