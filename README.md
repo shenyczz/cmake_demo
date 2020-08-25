@@ -1,5 +1,5 @@
-@[TOC](CMAKE DEMO)
 # cmake_demo
+===
 CMake 演练代码
 
 ## [demo1]简单的代码演练
