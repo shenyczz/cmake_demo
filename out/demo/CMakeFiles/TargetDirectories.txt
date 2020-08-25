@@ -1,3 +1,0 @@
-/mnt/d/sfxCode/vscode/cmake_demo/out/demo/CMakeFiles/rebuild_cache.dir
-/mnt/d/sfxCode/vscode/cmake_demo/out/demo/CMakeFiles/edit_cache.dir
-/mnt/d/sfxCode/vscode/cmake_demo/out/demo/CMakeFiles/demo.dir

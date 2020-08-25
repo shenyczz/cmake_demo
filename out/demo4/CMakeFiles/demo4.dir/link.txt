@@ -1,1 +1,0 @@
-/usr/bin/c++    -rdynamic CMakeFiles/demo4.dir/demo4.cpp.o  -o demo4  -Wl,-rpath,/mnt/d/sfxCode/vscode/cmake_demo/out/demo4 libMathfuns.so 
