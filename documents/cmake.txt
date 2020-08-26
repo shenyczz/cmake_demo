@@ -1,3 +1,20 @@
+# ==================
+# CMAKE 参考
+# =========================================================
+
+编译参数 - 看CMakeCache.txt
+
+
+
+
+
+
+
+
+
+
+
+
 区分 开发版 与 发布版
 上述的代码编译后都是不可调试的，并且没有做编译优化，我们希望能够编译成一个调试版本与一个发布版本。做法如下:
 
@@ -90,7 +107,6 @@ MAKE_CXX_FLAGS                      # MAKE_CXX_FLAGS
 CMAKE_INCLUDE_CURRENT_DIR           # 自动将每个CMakeLists.txt的所在目录依次加入到 头文件搜索目录
 
 编译参数相关:
-
 message(STATUS "CMAKE_C_FLAGS = " ${CMAKE_C_FLAGS})
 message(STATUS "CMAKE_C_FLAGS_DEBUG = " ${CMAKE_C_FLAGS_DEBUG})
 message(STATUS "CMAKE_C_FLAGS_RELEASE = " ${CMAKE_C_FLAGS_RELEASE})
@@ -110,14 +126,4 @@ message(STATUS "CMAKE_SHARED_LINKER_FLAGS_RELEASE = " ${CMAKE_SHARED_LINKER_FLAG
 message(STATUS "CMAKE_STATIC_LINKER_FLAGS = " ${CMAKE_STATIC_LINKER_FLAGS})
 message(STATUS "CMAKE_STATIC_LINKER_FLAGS_DEBUG = " ${CMAKE_STATIC_LINKER_FLAGS_DEBUG})
 message(STATUS "CMAKE_STATIC_LINKER_FLAGS_RELEASE = " ${CMAKE_STATIC_LINKER_FLAGS_RELEASE})
-
-
-文章转载自 ： https://www.jianshu.com/p/835f777c9183
-
-
-
-
-
-
-
 

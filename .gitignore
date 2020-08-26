@@ -32,7 +32,9 @@
 *.app
 
 # Build results
-# [Oo]ut/
+[Oo]ut
+[Bb]uild
+
 
 # Readme file
 # *.readme
