@@ -12,3 +12,4 @@ add_executable(${PROJECT_NAME} demo6.cpp)
 
 # 链接库
 target_link_libraries(${PROJECT_NAME} Mathfuns)
+

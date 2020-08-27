@@ -1,8 +1,17 @@
-#
-# 操作步骤
-#
+# 
+# linux
+# 
 cmake demo -B out/demo
+cd out/demo
+make
+./demo
+cd ../..
 
+
+#
+# windows - 使用 MinGW64
+#
+cmake demo -B"out/demo" -G"MinGW Makefiles"
 cd out/demo
 make
 ./demo

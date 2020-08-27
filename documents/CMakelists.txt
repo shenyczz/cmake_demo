@@ -1,4 +1,5 @@
-# CMakelists.txt
+# 
+# CMakelists.txt - 位置?
 # 
 
 # cmake 最低版本需求
@@ -13,7 +14,7 @@ project(demo
         HOMEPAGE_URL "https://github.com/shenyczz/cmake_demo"
         DESCRIPTION "项目演示...")
 
-message("----------------------------------------------------")
+message("")
 message("项目名称: " ${PROJECT_NAME})
 message(STATUS "版本: " ${PROJECT_VERSION})
 message(STATUS "版本: " ${PROJECT_HOMEPAGE_URL})
@@ -22,25 +23,10 @@ message(STATUS "版本: " ${PROJECT_HOMEPAGE_URL})
 # message(STATUS "版本: " ${PROJECT_VERSION_PATCH})
 # message(STATUS "版本: " ${PROJECT_VERSION_TWEAK})
 message(STATUS "描述: " ${PROJECT_DESCRIPTION})
-
-# CMAKE 宏定义
 message("")
-message("宏定义: ")
-message(STATUS "PROJECT_BINARY_DIR = " ${PROJECT_BINARY_DIR} "\t# 项目二进制目录")
-message(STATUS "demo_BINARY_DIR = " ${demo_BINARY_DIR})
 
-message(STATUS "PROJECT_SOURCE_DIR = " ${PROJECT_SOURCE_DIR} "\t# 项目源代码目录")
-message(STATUS "demo_SOURCE_DIR = ${demo_SOURCE_DIR}")
 
-# CMAKE 包含命令
-# 
-message("")
-message("包含命令: ")
-include_directories(${PROJECT_SOURCE_DIR}/include)
-# target_include_directories("")
-message(STATUS "INCLUDE_DIRECTORIES = " ${PROJECT_INCLUDE_DIRECTORIES})
 
-message("")
 
 # 指定生成目标(这里是可执行文件)
 # add_executable(${PROJECT_NAME} demo.cpp)

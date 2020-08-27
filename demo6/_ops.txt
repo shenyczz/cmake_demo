@@ -1,5 +1,5 @@
 #
-# 操作步骤
+# 操作步骤 - 自定义编译选项
 #
 cmake demo6 -B out/demo6
 cd out/demo6
